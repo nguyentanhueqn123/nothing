@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container > h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.container {
+  /* max-width: 600px; */
+  margin: 0 auto;
+  padding: 20px;
+}
+.input-container {
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.input-container input {
+  margin-top: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#expenseDate {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 10px;
+}
+.input-container input[type="text"],
+.input-container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.button-container {
+  text-align: center;
+}
+.button-container > button {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  background: #0866ff;
+  color: white;
+}
+table {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+thead > tr {
+  background: #ccc;
+}
+.total {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background: #f0f1f3;
+  }
+}
+i {
+  font-size: 20px;
+  padding: 4px;
+}
+.color-icon {
+  color: #0866ff;
+}
+.color-icon-trash {
+  margin-left: 4px;
+  color: #ff0b13;
+}
+.no {
+  width: 8px;
+}
+.date {
+  width: 60px;
+}
+.name {
+  width: 20px;
+}
+.amount {
+  width: 40px;
+}
+.empty {
+  width: 100px;
+}
+tr:nth-child(even) {
+  background: #fff;
+}
+.box-left {
+  display: flex;
+  gap: 20px;
+}

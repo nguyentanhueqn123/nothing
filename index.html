@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý chi tiêu</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-[2rem]">Quản lý chi tiêu</h1>
+        <div class="input-container">
+            <input type="text" id="expenseName" placeholder="Tên chi tiêu">
+            <input type="number" id="expenseAmount" placeholder="Số tiền">
+            <input type="date" id="expenseDate">
+        </div>
+        <div class="button-container">
+            <!-- <button onclick="addExpense()">Thêm chi tiêu</button> -->
+            <button id="addExpenseButton" onclick="addExpense()">THÊM CHI TIÊU</button>
+        </div>
+        <div class="mt-4">
+            <div class="flex gap-4">
+                <p class="total">Tổng cộng:</p>
+                <p class="total" id="totalExpense" >0</p>
+            </div>
+            <div class="flex gap-4">
+                <p class="total" colspan="4">Tổng cộng theo tháng:</p>
+                <p class="total" id="totalExpenseByMonth">0</p> 
+            </div>
+           
+        </div>
+        <table id="expenseTable">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ngày</th>
+                    <th>Tên</th>
+                    <th>Số tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="expenseList"></tbody>
+        </table>
+    </div>
+
+    <script src="./script.js">
+    </script>
+</body>
+</html>
