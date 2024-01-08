@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: white;
+  background: #f0f1f3;
 }
 * {
   margin: 0;
@@ -12,9 +12,11 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  font-size: 40px;
 }
 .container {
   /* max-width: 600px; */
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
 }
@@ -26,24 +28,28 @@ body {
   margin-top: 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  width: 100%;
 }
 #expenseDate {
   width: 100%;
-  min-height: 38px;
-  padding: 0 10px;
+  height: 80px;
+  padding: 20px 26px;
+  font-size: 40px;
 }
 .input-container input[type="text"],
 .input-container input[type="number"] {
   width: 100%;
-  padding: 10px;
+  padding: 20px 26px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 40px;
 }
 .button-container {
   text-align: center;
 }
 .button-container > button {
   width: 100%;
+  height: 80px;
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
@@ -52,15 +58,18 @@ body {
   margin-bottom: 20px;
   background: #0866ff;
   color: white;
+  font-size: 32px;
 }
 table {
+  margin-top: 16px;
   border: 1px solid #ccc;
   width: 100%;
   border-collapse: collapse;
+  font-size: 32px;
 }
 th,
 td {
-  padding: 8px;
+  padding: 20px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -73,11 +82,11 @@ thead > tr {
 
 @media only screen and (max-width: 600px) {
   body {
-    background: #f0f1f3;
+    font-size: 40px;
   }
 }
 i {
-  font-size: 20px;
+  font-size: 32px;
   padding: 4px;
 }
 .color-icon {
@@ -87,25 +96,16 @@ i {
   margin-left: 4px;
   color: #ff0b13;
 }
-.no {
-  width: 8px;
-}
-.date {
-  width: 60px;
-}
-.name {
-  width: 20px;
-}
-.amount {
-  width: 40px;
-}
-.empty {
-  width: 100px;
-}
+
 tr:nth-child(even) {
   background: #fff;
 }
-.box-left {
+
+.container-total {
+  font-size: 32px;
+}
+.container-total .position {
   display: flex;
   gap: 20px;
+  margin-top: 20px;
 }
