@@ -41,8 +41,13 @@ function showExpenses() {
     Object.keys(totalExpenseByMonth).forEach((month) => {
         const monthTotalRow = document.createElement('div');
         monthTotalRow.innerHTML = `
-            <p>${month}</p>
-            <p>${totalExpenseByMonth[month]} VNĐ</p>
+            <div class="container-month">
+                <p class="per-month">${month}</p>
+                <div>
+                    <p class="total-month">${totalExpenseByMonth[month]} VNĐ</p>
+
+                </div>
+            </div>
         `;
         totalExpenseByMonthElement.appendChild(monthTotalRow);
     });

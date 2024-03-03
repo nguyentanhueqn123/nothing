@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết thống kê</title>
+    <link rel="stylesheet" href="./detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html">Trang chủ</a>
+        <h1>Tổng quan chi tiêu</h1>
+        
+        <div class="container-total">
+            <div class="position-total">
+                <p class="title-total">Tổng chi tiêu:</p>
+                <h2 class="total-expense" id="totalExpense" >0</h2>
+            </div>
+            <div class="position-total__month">
+                <div class="tittle-total__month" colspan="4">Chi tiêu theo tháng:</div>
+                <div class="total" id="totalExpenseByMonth">0</div> 
+            </div>
+        </div>
+
+        <table id="expenseTable">
+            <div id="expenseList"></div>
+        </table>
+        <h4>Chi tiêu theo tuần:</h4>
+    </div>
+
+    <!-- <script src="./script.js">
+    </script> -->
+    <script>
+        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+        function showExpenses() {
+            const expenseList = document.getElementById('expenseList');
+            expenseList.innerHTML = '';
+
+            let totalExpense = 0;
+            let totalExpenseByMonth = {};
+            let totalExpenseByWeek = {};
+
+            expenses.forEach((expense, index) => {
+                
+                totalExpense += expense.amount;
+
+                const month = expense.date.substring(0, 7);
+                if (totalExpenseByMonth[month]) {
+                    totalExpenseByMonth[month] += expense.amount;
+                } else {
+                    totalExpenseByMonth[month] = expense.amount;
+                }
+
+                // Tính toán số tiền theo tuần
+                const weekNumber = getWeekNumber(new Date(expense.date));
+                const weekKey = `${month}-W${weekNumber}`;
+                if (totalExpenseByWeek[weekKey]) {
+                    totalExpenseByWeek[weekKey] += expense.amount;
+                } else {
+                    totalExpenseByWeek[weekKey] = expense.amount;
+                }
+            });
+
+            // Hiển thị tổng chi
+            document.getElementById('totalExpense').textContent = totalExpense;
+
+            // Hiển thị tổng chi theo tháng
+            const totalExpenseByMonthElement = document.getElementById('totalExpenseByMonth');
+            totalExpenseByMonthElement.innerHTML = '';
+            Object.keys(totalExpenseByMonth).forEach((month) => {
+                const monthTotalRow = document.createElement('div');
+                monthTotalRow.innerHTML = `
+                    <div class="container-month">
+                        <p class="per-month">${month}</p>
+                        <div>
+                            <p class="total-month">${totalExpenseByMonth[month]} VNĐ</p>
+                        </div>
+                    </div>
+                `;
+                totalExpenseByMonthElement.appendChild(monthTotalRow);
+            });
+
+            // Hiển thị tổng chi theo tuần
+            const totalExpenseByWeekElement = document.createElement('div');
+            totalExpenseByWeekElement.id = 'totalExpenseByWeek';
+            document.querySelector('.container').appendChild(totalExpenseByWeekElement);
+            Object.keys(totalExpenseByWeek).forEach((week) => {
+                const weekTotalRow = document.createElement('div');
+                weekTotalRow.innerHTML = `
+                    <div class="container-week">
+                        <p class="per-week">${week}</p>
+                        <div>
+                            <p class="total-week">${totalExpenseByWeek[week]} VNĐ</p>
+                        </div>
+                    </div>
+                `;
+                totalExpenseByWeekElement.appendChild(weekTotalRow);
+            });
+
+            localStorage.setItem('expenses', JSON.stringify(expenses));
+        }
+        // Hàm lấy số tuần trong năm từ một ngày cụ thể
+        function getWeekNumber(d) {
+            d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+            d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+            const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+            const weekNo = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+            return weekNo;
+        }
+        // Show the initial list of expenses
+        showExpenses();
+    </script>
+</body>
+</html>

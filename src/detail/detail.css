@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f1f3;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  padding: 20px;
+  font-size: 2rem;
+}
+.container > h1 {
+  text-align: center;
+  margin: 48px 0;
+}
+.container .container-total {
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+}
+.container-total .position-total {
+  background: #f0f1f3;
+  border-radius: 16px;
+  padding: 30px;
+}
+.container-total .position-total__month {
+  margin-top: 30px;
+}
+.position-total__month .tittle-total__month {
+  font-weight: bold;
+}
+.title-total {
+  text-align: center;
+}
+.total-expense {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.container-month {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.container-month .per-month {
+  width: 50%;
+  margin-top: 8px;
+  justify-content: start;
+}
+.container-month .total-month {
+  width: 100%;
+  margin-top: 8px;
+  justify-content: start;
+  color: #0866ff;
+  font-weight: bold;
+}
+.container-week {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+  background: #fff;
+  display: flex;
+}
+.container-week .per-week {
+  width: 50%;
+  color: red;
+}
+.container-week .total-week {
+  width: 100%;
+  color: #0866ff;
+  font-weight: bold;
+}
+.container > h4 {
+  margin: 40px 20px 20px 20px;
+}
